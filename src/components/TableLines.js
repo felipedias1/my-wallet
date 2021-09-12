@@ -5,7 +5,7 @@ import { deleteExpense } from '../actions';
 
 class TableLines extends Component {
   render() {
-    const { expense } = this.props;
+    const { expense, expenseDelete } = this.props;
     const { id, description, tag, method, value, currency, exchangeRates } = expense;
     return (
       <tr>
@@ -20,7 +20,7 @@ class TableLines extends Component {
         <td>Real</td>
         <td>
           <button
-            onClick={ () => this.handleDelete(id) }
+            onClick={ () => expenseDelete(id) }
             data-testid="delete-btn"
             type="button"
           >
