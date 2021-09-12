@@ -1,11 +1,12 @@
 // Coloque aqui suas actions
-export const EMAIL_VALID = 'EMAIL_VALID';
+export const LOGIN_VALID = 'LOGIN_VALID';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const REQUEST_CURRENCY = 'REQUEST_CURRENCY';
 export const FAILED_CURRENCY = 'FAILED_CURRENCY';
+export const EXPENSE_NEW = 'EXPENSE_NEW';
 
 export const emailValid = (email) => ({
-  type: EMAIL_VALID,
+  type: LOGIN_VALID,
   email,
 });
 
@@ -29,6 +30,27 @@ export function fetchCurrency() {
         .then(
           (json) => dispatch(getCurrency(json)),
           (error) => dispatch(failedCurrency(error)),
+        ));
+  };
+}
+
+function expenseOk(expense) {
+  return { type: EXPENSE_NEW,
+    payload: expense };
+}
+
+export function newExpense(expense) {
+  return (dispatch) => {
+    fetch('https://economia.awesomeapi.com.br/json/all')
+      .then((r) => r.json()
+        .then(
+          (json) => {
+            const oneExpense = {
+              ...expense,
+              exchangeRates: json,
+            };
+            dispatch(expenseOk(oneExpense));
+          },
         ));
   };
 }

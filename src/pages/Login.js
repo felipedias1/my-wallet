@@ -13,23 +13,23 @@ class Login extends React.Component {
       buttonDisabled: true,
     };
     this.clickButton = this.clickButton.bind(this);
-    this.handleButton = this.handleButton.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.validLogin = this.validLogin.bind(this);
   }
 
-  // função para validar email usando regex
+  // função para validar o email usando regex
   validEmail(email) {
     const reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     return reg.test(email);
   }
 
-  // função para validar tamanho da senha
+  // função para validar a senha
   validPassword(password) {
     const MIN_LENGHT = 6;
     return password.length >= MIN_LENGHT;
   }
 
-  // Essa função ira validar a senha e o email da tela de login
+  // Essa função ira desabilitar(ou não) o botão de Login
   validLogin() {
     const { email, password } = this.state;
     if (this.validEmail(email) && this.validPassword(password)) {
@@ -43,17 +43,19 @@ class Login extends React.Component {
     }
   }
 
-  clickButton() {
+  // Dispatch o email digitado pelo usuário e direciona o usuario para a carteira
+  clickButton(event) {
+    event.preventDefault();
     const { email } = this.state;
     const { history, user } = this.props;
     user(email);
     history.push('/carteira');
   }
 
-  // handleButton genérico para qualquer input do formulário
-  handleButton({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  // handleChange que atualiza o estado a cada mundança para todos os campos do input
+  // Depois executa a função para validar o login e desabilitar(ou não) o botão
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({ [name]: value }, () => {
       this.validLogin();
     });
@@ -67,16 +69,14 @@ class Login extends React.Component {
           type="email"
           placeholder="Insira seu email"
           name="email"
-          /* value="" */
-          onChange={ this.handleButton }
+          onChange={ this.handleChange }
           data-testid="email-input"
         />
         <input
           type="text"
           placeholder="Insira sua senha"
           name="password"
-          /* value="" */
-          onChange={ this.handleButton }
+          onChange={ this.handleChange }
           data-testid="password-input"
         />
 
@@ -93,6 +93,7 @@ class Login extends React.Component {
   }
 }
 
+// Essa função 'Dispatch' o email do usuário para o estado global
 const mapDispatchToProps = (dispatch) => ({
   user: (email) => dispatch(emailValid(email)),
 });

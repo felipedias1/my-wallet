@@ -7,13 +7,13 @@ const INITIAL_STATE = {
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   // caso EMAIL_VALID, mantém o estado e altera a chave email.
-  case 'EMAIL_VALID':
+  case 'LOGIN_VALID':
     return {
       ...state,
       email: action.email,
     };
 
-    // caso não encontre nenhum caso, retorna o estado atual
+    // caso não encontre nenhum, retorna o estado atual
   default:
     return state;
   }
