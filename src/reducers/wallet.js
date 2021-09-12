@@ -4,6 +4,7 @@ import {
   GET_CURRENCY,
   REQUEST_CURRENCY,
   EXPENSE_NEW,
+  EXPENSE_DELETE,
 } from '../actions';
 
 // Cria um estado inicial para o reducer 'wallet'
@@ -33,6 +34,11 @@ function wallet(state = INITIAL_STATE, action) {
       ...state,
       expenseId: state.expenseId + 1,
       expenses: state.expenses.concat({ ...action.payload, id: state.expenseId }),
+    };
+  case EXPENSE_DELETE:
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== action.id),
     };
 
   default:

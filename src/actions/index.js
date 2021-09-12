@@ -4,6 +4,7 @@ export const GET_CURRENCY = 'GET_CURRENCY';
 export const REQUEST_CURRENCY = 'REQUEST_CURRENCY';
 export const FAILED_CURRENCY = 'FAILED_CURRENCY';
 export const EXPENSE_NEW = 'EXPENSE_NEW';
+export const EXPENSE_DELETE = 'EXPENSE_DELETE';
 
 export const emailValid = (email) => ({
   type: LOGIN_VALID,
@@ -54,3 +55,8 @@ export function newExpense(expense) {
         ));
   };
 }
+
+export const deleteExpense = (id) => ({
+  type: EXPENSE_DELETE,
+  id,
+});
