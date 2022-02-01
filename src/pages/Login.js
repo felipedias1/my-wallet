@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { emailValid } from '../actions';
+import walletImg from '../wallet.png';
 
 class Login extends React.Component {
   constructor(props) {
@@ -64,30 +65,36 @@ class Login extends React.Component {
   render() {
     const { buttonDisabled } = this.state;
     return (
-      <div>
-        <input
-          type="email"
-          placeholder="Insira seu email"
-          name="email"
-          onChange={ this.handleChange }
-          data-testid="email-input"
-        />
-        <input
-          type="text"
-          placeholder="Insira sua senha"
-          name="password"
-          onChange={ this.handleChange }
-          data-testid="password-input"
-        />
+      <div className="container-login">
+        <div className="left-login">
+          <img src={ walletImg } alt="wallet" />
+        </div>
+        <div className="right-login">
+          <h1>TrybeWallet</h1>
+          <input
+            type="email"
+            placeholder="Insira seu email"
+            name="email"
+            onChange={ this.handleChange }
+            data-testid="email-input"
+          />
+          <input
+            type="text"
+            placeholder="Insira sua senha"
+            name="password"
+            onChange={ this.handleChange }
+            data-testid="password-input"
+          />
 
-        <button
-          onClick={ this.clickButton }
-          type="button"
-          data-testid="product-add-to-cart"
-          disabled={ buttonDisabled }
-        >
-          entrar
-        </button>
+          <button
+            onClick={ this.clickButton }
+            type="button"
+            data-testid="product-add-to-cart"
+            disabled={ buttonDisabled }
+          >
+            entrar
+          </button>
+        </div>
       </div>
     );
   }

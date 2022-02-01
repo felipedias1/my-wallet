@@ -6,13 +6,13 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      {' '}
-      Hello, TrybeWallet!
-      <Switch>
-        <Route exact path="/carteira" component={ Wallet } />
-        <Route path="/" component={ Login } />
-      </Switch>
+    <div className="container">
+      <div className="main-login">
+        <Switch>
+          <Route exact path="/carteira" component={ Wallet } />
+          <Route path="/" component={ Login } />
+        </Switch>
+      </div>
     </div>
   );
 }
