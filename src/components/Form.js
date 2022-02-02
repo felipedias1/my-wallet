@@ -47,7 +47,7 @@ class Form extends React.Component {
     return (
       <div>
         <label htmlFor="value">
-          Valor
+          Valor:
           <input
             type="number"
             id="value"
@@ -56,7 +56,7 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="description">
-          Descrição
+          Descrição:
           <input
             type="text"
             id="description"

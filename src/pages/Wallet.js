@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Form from '../components/Form';
 import { fetchCurrency } from '../actions';
 import Table from '../components/Table';
+import walletImg from '../wallet.png';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -28,17 +29,28 @@ class Wallet extends React.Component {
 
   render() {
     const { email } = this.props;
+    console.log(email);
     return (
-      <div>
-        <div>
-          <p data-testid="email-field">{ email }</p>
-          <p data-testid="total-field">
-            { this.totalExpenses() }
-          </p>
-          <p data-testid="header-currency-field">BRL</p>
+      <div className="wallet-container">
+        <div className="wallet-nav">
+          <div className="wallet-title">
+            <img src={ walletImg } alt="wallet" />
+            <h3> TrybeWallet </h3>
+          </div>
+          <div className="wallet-user">
+            <p data-testid="email-field">{ email }</p>
+            <p data-testid="total-field">
+              { this.totalExpenses() }
+            </p>
+            <p data-testid="header-currency-field">BRL</p>
+          </div>
         </div>
-        <Form totalExpenses={ this.totalExpenses } />
-        <Table />
+        <div className="wallet-form">
+          <Form totalExpenses={ this.totalExpenses } />
+        </div>
+        <div className="wallet-table">
+          <Table />
+        </div>
       </div>
     );
   }

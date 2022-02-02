@@ -32,7 +32,6 @@ code {
   width: 100%;
   flex-direction: row;
   justify-content:space-around;
-  
 }
 
 .left-login {
@@ -85,3 +84,79 @@ code {
   background-color: #3FBB69;
 }
 
+
+.wallet-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wallet-nav {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.wallet-title {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-user {
+  width: 30%;
+  display: flex;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.wallet-title img{
+  width: 5%;
+}
+
+.wallet-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.wallet-form > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 15px;
+  background-color: black;
+  color: white;
+}
+
+.wallet-form > div > button {
+  border-radius: 5px;
+  background-color: #3FBB69;
+}
+
+.wallet-form > div > input {
+  margin: 1px;
+}
+
+.wallet-table {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #282828;
+}
+
+.wallet-table > table {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.wallet-table > table > thead{
+  color: white;
+}
+
+.wallet-table > table > tbody{
+  background-color: white;
+}

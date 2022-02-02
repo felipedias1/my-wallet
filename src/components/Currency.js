@@ -6,7 +6,7 @@ class Currency extends React.Component {
     const { filterCurrencies, handleChange } = this.props;
     return (
       <label htmlFor="currency">
-        Moeda
+        Moeda:
         <select name="currency" id="currency" onChange={ handleChange }>
           { filterCurrencies
             ? filterCurrencies

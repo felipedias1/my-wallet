@@ -8,7 +8,7 @@ class PaymentTag extends React.Component {
     return (
       <>
         <label htmlFor="method">
-          Método de pagamento
+          Método de pagamento:
           <select name="method" id="method" onChange={ handleChange }>
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -16,7 +16,7 @@ class PaymentTag extends React.Component {
           </select>
         </label>
         <label htmlFor="tag">
-          Tag
+          Tag:
           <select name="tag" id="tag" onChange={ handleChange }>
             { tags.map((tag, key) => <option key={ key }>{ tag }</option>)}
           </select>
