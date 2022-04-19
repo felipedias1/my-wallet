@@ -1,4 +1,4 @@
-# Boas vindas projeto TrybeWallet!
+# Boas vindas projeto MyWallet!
 
 Neste projeto será desenvolvida uma carteira de controle de despesas com conversor de moedas, ao utilizar essa aplicação um usuário deverá ser capaz de:
 
@@ -16,7 +16,7 @@ Neste projeto será desenvolvida uma carteira de controle de despesas com conver
 ## Instalando Dependências
 
 ```
-cd Trybe-Wallet/
+cd my-wallet/
 npm install
 ```
 
